@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import sortBy from 'sort-by'
 import Product from '../components/Product'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
 const Product = ({ product, onDeleteProduct }) => {
   return (
     <div>

@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { deleteProduct, getAllProduct } from './api/ProductAPI'
 import ProductList from './containers/ProductList'
+import ProductDetails from './containers/ProductDetails'
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -26,10 +34,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ProductList
-          products={this.state.products}
-          onDeleteProduct={this.handleDeleteProduct.bind(this)}
-        />
+        <Router>
+          <Switch>
+
+            <Route path="/product/:id" render={(match) => <ProductDetails productID = {match.match.params.id}
+                                                                          onDeleteProduct = {this.handleDeleteProduct.bind(this)}/>} />
+
+            <Route exact path="/">
+              <ProductList
+                products={this.state.products}
+                onDeleteProduct={this.handleDeleteProduct.bind(this)}
+              />
+            </Route>
+            <Route component={PageNotFound} />
+          </Switch>
+        </Router>
       </div>
     )
   }
