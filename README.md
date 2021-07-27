@@ -1,12 +1,9 @@
-Handling User Input
-  Controlled Components
-  Uncontrolled Component
-Props Types
-  How React props work
-  Why validate props in React?
-  Using the prop-types library in React
-Presentational and Container Component
-React Router
-  What is routing?
-  Setting up the router
-  Rendering routes# mz-shop
+# Task
+
+- Add Routing to the project useing `react-rout-dom`
+- Three Routes
+  - Default Route `/` show all products
+  - Route `/products/:id` 
+    - Create New Component Named `Product Details`
+    - **HINT** use get product by id from `api.js` file 
+  - Handle for 404 error - Page Not found `for example /zanaty`
