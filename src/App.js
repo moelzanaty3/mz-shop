@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { deleteProduct, getAllProduct } from './api/ProductAPI'
 import ProductList from './containers/ProductList'
+import ProductDetailsContainer from './containers/ProductDetailsContainer'
 
 class App extends Component {
   state = {
@@ -26,10 +28,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ProductList
-          products={this.state.products}
-          onDeleteProduct={this.handleDeleteProduct.bind(this)}
-        />
+        <Switch>
+          <Route path="/" exact={true} render={() => 
+            <ProductList
+              products={this.state.products}
+              onDeleteProduct={this.handleDeleteProduct.bind(this)}
+            />} 
+          />
+          <Route path="/products/" component={ProductDetailsContainer} />
+          <Route render={() =>
+            <div style={{textAlign: 'center'}}>
+              <h1>Error: 404</h1>
+              <p>Page not found!</p>
+            </div>}
+          />
+        </Switch>
       </div>
     )
   }
