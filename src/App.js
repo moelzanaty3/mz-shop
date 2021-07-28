@@ -36,7 +36,7 @@ class App extends Component {
               <ProductList products={this.state.products} onDeleteProduct={this.handleDeleteProduct.bind(this)} />
             )}
           />
-          <Route path="/products/" component={ProductDetailsContainer} />
+          <Route path="/products/:id" exact={true} component={ProductDetailsContainer} />
           <Route
             render={() => (
               <div style={{textAlign: 'center'}}>

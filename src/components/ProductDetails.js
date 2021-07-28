@@ -9,7 +9,7 @@ class ProductDetails extends Component {
 
   componentDidMount() {
     const path = this.props.path;
-    const match = path.match(/(?<=\/)\d+$/),
+    const match = path.match(/(?<=products\/)\d+$/),
       id = match ? match[0] : '';
     getProductById(id).then(response => {
       (response instanceof Array) | (response === null)
