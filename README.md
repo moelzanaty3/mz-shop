@@ -14,4 +14,4 @@
 - Created ProductDetails component and handled special case where the user would type an invalid id
 - Completed the usage of prop-types for the rest of components in the app
 
-***Tasks fulfilled by Abdulrahman Ashraf Alkhateeb**
+***Tasks fulfilled by Abdulrahman Ashraf Alkhateeb***
