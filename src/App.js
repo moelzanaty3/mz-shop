@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { deleteProduct, getAllProduct } from './api/ProductAPI'
+import Page404 from './components/Page404'
+import ProductDetails from './containers/ProductDetails'
 import ProductList from './containers/ProductList'
 
 class App extends Component {
@@ -26,10 +29,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ProductList
-          products={this.state.products}
-          onDeleteProduct={this.handleDeleteProduct.bind(this)}
-        />
+        <Router>
+          <Switch>
+            <Route exact path='/' render={() =>(
+              <ProductList
+              products={this.state.products}
+              onDeleteProduct={this.handleDeleteProduct.bind(this)}
+            />
+            )}/>
+            <Route exact path='/products/:id' component={ProductDetails}/>
+            <Route component={Page404}/>
+          </Switch>
+        </Router>
       </div>
     )
   }

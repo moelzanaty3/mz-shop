@@ -96,6 +96,30 @@ body, .app {
 }
 
 
+.alert{
+    padding: 10px;
+    margin: 100px;
+    text-align: center;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 2px solid #a33a3a;
+    border-radius: 5px;
+}
+.backBtn{
+    width:150px;
+    height: 60px;
+    color:#ba3939 ;
+    background-color:  #ffe0e0;
+    border: 2px solid  black;
+    border-radius: 5px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  
+}
 /* ListContacts */
 .list-products {
   padding-top: 60px;
