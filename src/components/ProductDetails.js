@@ -8,7 +8,7 @@ class ProductDetails extends Component {
   };
 
   componentDidMount() {
-    const path = this.props.path;
+    const path = this.props.path.replace(/\/$/, '');
     const match = path.match(/(?<=products\/)\d+$/),
       id = match ? match[0] : '';
     getProductById(id).then(response => {
@@ -22,7 +22,7 @@ class ProductDetails extends Component {
     const product = this.state.product;
     return product ? (
       JSON.stringify(product) === JSON.stringify({}) ? (
-        <h1 style={{textAlign: 'center', color: 'red'}}>Invalid Product ID</h1>
+        <h1 class="error">Invalid Product ID</h1>
       ) : (
         <div className="product">
           {product.image && <img src={product.image} className="product-avatar" alt={`product of ${product.title}`} />}
@@ -39,7 +39,7 @@ class ProductDetails extends Component {
         </div>
       )
     ) : (
-      <span>Loading...</span>
+      <span class="not-found">Loading...</span>
     );
   }
 }

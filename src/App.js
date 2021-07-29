@@ -39,9 +39,9 @@ class App extends Component {
           <Route path="/products/:id" exact={true} component={ProductDetailsContainer} />
           <Route
             render={() => (
-              <div style={{textAlign: 'center'}}>
-                <h1>Error: 404</h1>
-                <p>Page not found!</p>
+              <div class="not-found">
+                <h1 style={{fontSize: '3em', margin: 0}}>Error: 404</h1>
+                <p style={{margin: 0}}>Oops! Page not found.</p>
               </div>
             )}
           />
