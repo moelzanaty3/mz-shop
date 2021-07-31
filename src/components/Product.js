@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Product = ({ product, onDeleteProduct }) => {
   return (
@@ -14,9 +15,11 @@ const Product = ({ product, onDeleteProduct }) => {
             />
           )}
           <div className="product-details">
-            <h3 className="product-title">{product.title}</h3>
+            <h3 className="product-title">
+              <Link to={`/products/${product.id}`}>{product.title}</Link>
+            </h3>
             <div className="product-meta">
-              <p className="product-price">{product.price}</p>
+              <p className="product-price">{product.price + '$'}</p>
               <p className="product-category">{product.category}</p>
             </div>
             <p className="product-description">{product.description}</p>
