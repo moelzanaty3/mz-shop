@@ -152,3 +152,12 @@ body, .app {
   align-items: center;
   flex-direction: column;
 }
+
+#title404 {
+  fontSize: '3em';
+  margin: 0; 
+}
+
+#msg404 {
+  margin: 0;
+}

@@ -22,7 +22,7 @@ class ProductDetails extends Component {
     const product = this.state.product
     return product ? (
       JSON.stringify(product) === JSON.stringify({}) ? (
-        <h1 class="error">Invalid Product ID</h1>
+        <h1 className="error">Invalid Product ID</h1>
       ) : (
         <div className="product">
           {product.image && (
@@ -45,7 +45,7 @@ class ProductDetails extends Component {
         </div>
       )
     ) : (
-      <span class="not-found">Loading...</span>
+      <span className="not-found">Loading...</span>
     )
   }
 }
