@@ -1,28 +1,30 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import sortBy from 'sort-by';
-import Product from '../components/Product';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import sortBy from 'sort-by'
+import Product from '../components/Product'
 
 class ProductList extends Component {
   state = {
     query: ''
-  };
+  }
 
   handleSearchProduct = query => {
     this.setState(() => ({
       query: query.trim()
-    }));
-  };
+    }))
+  }
 
   clearQuery = () => {
-    this.handleSearchProduct('');
-  };
+    this.handleSearchProduct('')
+  }
 
   render() {
-    const {products, onDeleteProduct} = this.props;
-    const {query} = this.state;
+    const { products, onDeleteProduct } = this.props
+    const { query } = this.state
     const showingProducts =
-      query === '' ? products : products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
+      query === ''
+        ? products
+        : products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()))
 
     return (
       <div>
@@ -34,7 +36,7 @@ class ProductList extends Component {
               placeholder="Search Products"
               value={query}
               onChange={event => {
-                this.handleSearchProduct(event.target.value);
+                this.handleSearchProduct(event.target.value)
               }}
             />
           </div>
@@ -52,17 +54,19 @@ class ProductList extends Component {
             {showingProducts &&
               showingProducts
                 .sort(sortBy('price'))
-                .map(product => <Product key={product.id} product={product} onDeleteProduct={onDeleteProduct} />)}
+                .map(product => (
+                  <Product key={product.id} product={product} onDeleteProduct={onDeleteProduct} />
+                ))}
           </ol>
         </div>
       </div>
-    );
+    )
   }
 }
 
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
   onDeleteProduct: PropTypes.func.isRequired
-};
+}
 
-export default ProductList;
+export default ProductList

@@ -1,13 +1,19 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-const Product = ({product, onDeleteProduct}) => {
+const Product = ({ product, onDeleteProduct }) => {
   return (
     <div>
       {product && (
         <div className="product">
-          {product.image && <img src={product.image} className="product-avatar" alt={`product of ${product.title}`} />}
+          {product.image && (
+            <img
+              src={product.image}
+              className="product-avatar"
+              alt={`product of ${product.title}`}
+            />
+          )}
           <div className="product-details">
             <Link to={`products/${product.id}`}>
               <h3 className="product-title">{product.title}</h3>
@@ -21,15 +27,16 @@ const Product = ({product, onDeleteProduct}) => {
           <button
             className="product-remove"
             onClick={() => {
-              onDeleteProduct(product.id);
-            }}>
+              onDeleteProduct(product.id)
+            }}
+          >
             remove
           </button>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 Product.propTypes = {
   product: PropTypes.shape({
@@ -41,6 +48,6 @@ Product.propTypes = {
     image: PropTypes.string
   }).isRequired,
   onDeleteProduct: PropTypes.func.isRequired
-};
+}
 
-export default Product;
+export default Product
