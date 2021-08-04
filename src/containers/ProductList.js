@@ -64,5 +64,9 @@ class ProductList extends Component {
   }
 }
 
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  onDeleteProduct: PropTypes.func.isRequired
+}
 
 export default ProductList
